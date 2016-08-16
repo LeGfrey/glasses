@@ -9,5 +9,5 @@ if len(sys.argv) < 3:
     sys.exit('This commands require 3 arguments')
 
 glasses = GlassesCore()
-files =  glasses.getFilesRecursive(sys.argv[1])
-glasses.searchOnFiles(files, sys.argv[2])
+files =  glasses.get_files_recursive(sys.argv[1])
+glasses.search_on_files(files, sys.argv[2])
