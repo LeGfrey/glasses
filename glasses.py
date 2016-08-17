@@ -18,6 +18,8 @@ class GlassesCore:
             for num, line in enumerate(file_object, 1):
                 if search in line:
                     print ' - ' + file + ' at line : ' + str(num)
+                    print line.lstrip()
+                    print ' ----------------------------------------------------- '
             file_object.close()
             
         
