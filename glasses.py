@@ -1,4 +1,5 @@
 import os
+import re
 
 class GlassesCore:
     def get_files_recursive(self, path):
@@ -12,11 +13,13 @@ class GlassesCore:
 
         return files
 
-    def search_on_files(self, files, search):
+    def search_on_files(self, files, search, regex = False):
+        if regex:
+            pattern = re.compile(search)
         for file in files:
             file_object = open(file, 'r')
             for num, line in enumerate(file_object, 1):
-                if search in line:
+                if (not regex and search in line) or (regex and pattern.match(line)) :
                     print ' - ' + file + ' at line : ' + str(num)
                     print line.lstrip()
                     print ' ----------------------------------------------------- '

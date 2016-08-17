@@ -4,8 +4,10 @@ import sys
 from glasses import GlassesCore
 
 if len(sys.argv) < 3:
-    sys.exit('This commands require 3 arguments')
-
+    sys.exit('This commands takes at least 3 arguments')
+    
 glasses = GlassesCore()
 files =  glasses.get_files_recursive(sys.argv[1])
-glasses.search_on_files(files, sys.argv[2])
+
+should_use_regex = True if '-r' in sys.argv else False
+glasses.search_on_files(files, sys.argv[2], should_use_regex)
