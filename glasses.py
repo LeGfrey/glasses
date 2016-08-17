@@ -20,8 +20,8 @@ class GlassesCore:
             file_object = open(file, 'r')
             for num, line in enumerate(file_object, 1):
                 if (not regex and search in line) or (regex and pattern.match(line)) :
-                    print ' - ' + file + ' at line : ' + str(num)
-                    print line.lstrip()
+                    print ' ## ' + file + ' at line : ' + str(num)
+                    print line.lstrip().strip()
                     print ' ----------------------------------------------------- '
             file_object.close()
             
